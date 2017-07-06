@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>仿京东菜单</title>
+	<style>
+		.wrap {
+			position: relative;
+			width: 250px;
+			left: 50px;
+			top: 50px;
+		}
+		ul {
+			padding: 15px 0;
+			list-style: none;
+			background: #6c6669;
+			color: #fff;
+			border-right-width: 0;
+		}
+		li {
+			display: block;
+			height: 30px;
+			line-height: 30px;
+			padding-left: 12px;
+			cursor: pointer;
+			font-size: 14px;
+			position: relative;
+		}
+		/*当样式的切换需要js来控制的时候，一般是添加类，方便js添加删除类*/
+		li.active {
+			background: #999395;
+		}
+		li span:hover {
+			color: #c81623;
+		}
+		.none {
+			display: none;
+		}
+		#sub {
+			width: 600px;
+			position: absolute;
+			border: 1px solid #f7f7f7;
+			background: #f7f7f7;
+			box-shadow: 2px 0 5px rgba(0,0,0,.3);
+			left: 250px;
+			top: 0;
+			box-sizing: border-box;
+			margin: 0;
+			padding: 10px;
+		}
+		.sub_content a {
+			font-size: 12px;
+			color: #666;
+			text-decoration: none;
+		}
+		.sub_content dd a {
+			display: inline-block;
+			border-left: 1px solid #e0e0e0;
+			padding: 0 10px;
+			margin: 4px 0;
+		}
+		.sub_content dl {
+			margin: 0;
+			overflow: hidden;
+		}
+		.sub_content dt {
+			float: left;
+			width: 70px;
+		  margin-top: 5px;
+			font-weight: bold;
+			clear: left;
+			position: relative;
+		}
+		.sub_content dd {
+			float: left;
+			width: 500px;
+			margin-left: 5px;
+			border-top: 1px solid #eee;
+			padding-top: 5px;
+			margin-bottom: 5px;
+		}
+		/*加图标用i元素可以省去一些细节*/
+		.sub_content dt i {
+			width: 4px;
+			height: 14px;
+			font: 400 9px/14px consolas;
+			position: absolute;
+			right: 5px;
+			top:5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap" id="test">
+		<ul>
+			<li data-id="a">
+				<span>家用电器</span>
+			</li>
+			<li data-id="b">
+				<span>手机 / 运营商 / 数码</span>
+			</li>
+			<li data-id="c">
+				<span>电脑 / 办公</span>
+			</li>
+			<li data-id="d">
+				<span>家居 / 家具 / 家装 / 厨具</span>
+			</li>
+			<li data-id="e">
+				<span>男装 / 女装 / 童装 / 内衣</span>
+			</li>
+			<li data-id="f">
+				<span>个护化妆 / 清洁用品 / 宠物</span>
+			</li>
+			<li data-id="g">
+				<span>鞋靴 / 箱包 / 珠宝 / 奢侈品</span>
+			</li>
+			<li data-id="h">
+				<span>运动 / 户外 / 钟表</span>
+			</li>
+			<li data-id="i">
+				<span>汽车 / 汽车用品</span>
+			</li>
+			<li data-id="j">
+				<span>医药保健</span>
+			</li>
+		</ul>
+		<div id="sub" class="none">
+			<div id="a" class="sub_content none">
+				<dl>
+					<dt>
+						<a href="#">电视<i>&gt;</i></a>
+					</dt>
+					<dd class="first">
+						<a href="#">合资品牌</a>
+						<a href="#">国产品牌</a>
+						<a href="#">互联网品牌</a>
+					</dd>
+					<dt>
+						<a href="#">空调<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">壁挂式空调</a>
+						<a href="#">柜式空调</a>
+						<a href="#">中央空调</a>
+						<a href="#">空调配件</a>
+					</dd>
+					<dt>
+						<a href="#">洗衣机<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">滚筒洗衣机</a>
+						<a href="#">洗烘一体机</a>
+						<a href="#">波轮洗衣机</a>
+						<a href="#">迷你洗衣机</a>
+						<a href="#">洗衣机配件</a>
+					</dd>
+					<dt>
+						<a href="#">冰箱<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">多门</a>
+						<a href="#">对开门</a>
+						<a href="#">三门</a>
+						<a href="#">双门</a>
+						<a href="#">冷柜/冰吧</a>
+						<a href="#">酒柜</a>
+						<a href="#">冰箱配件</a>
+					</dd>
+					<dt>
+						<a href="#">厨卫大电<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">油烟机</a>
+						<a href="#">燃气灶</a>
+						<a href="#">烟灶套装</a>
+						<a href="#">消毒柜</a>
+						<a href="#">洗碗机</a>
+						<a href="#">电热水器</a>
+						<a href="#">燃气热水器</a>
+						<a href="#">嵌入式厨电</a>
+					</dd>
+					<dt>
+						<a href="#">厨房小电<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">电饭煲</a>
+						<a href="#">微波炉</a>
+						<a href="#">电烤箱</a>
+						<a href="#">电磁炉</a>
+						<a href="#">电陶炉</a>
+						<a href="#">电压力锅</a>
+						<a href="#">咖啡机</a>
+						<a href="#">面包机</a>
+						<a href="#">榨汁机</a>
+						<a href="#">料理机</a>
+						<a href="#">电饼铛</a>
+						<a href="#">养生壶/煎药壶</a>
+						<a href="#">酸奶机</a>
+						<a href="#">煮蛋器</a>
+						<a href="#">面条机</a>
+						<a href="#">电水壶/热水瓶</a>
+						<a href="#">电炖锅</a>
+						<a href="#">多用途锅</a>
+						<a href="#">电烧烤炉</a>
+						<a href="#">电热饭盒</a>
+						<a href="#">其它厨房电器</a>
+					</dd>
+					<dt>
+						<a href="#">生活电器<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">电风扇</a>
+						<a href="#">冷风扇</a>
+						<a href="#">吸尘器/除螨仪</a>
+						<a href="#">净化器</a>
+						<a href="#">扫地机器人</a>
+						<a href="#">加湿器</a>
+						<a href="#">挂烫机/熨斗</a>
+						<a href="#">取暖电器</a>
+						<a href="#">插座</a>
+						<a href="#">电话机</a>
+						<a href="#">饮水机</a>
+						<a href="#">净水器</a>
+						<a href="#">除湿机</a>
+						<a href="#">干衣机</a>
+						<a href="#">清洁机</a>
+						<a href="#">收录/音机</a>
+						<a href="#">毛球修剪器</a>
+						<a href="#">其它生活电器</a>
+						<a href="#">生活电器配件</a>
+					</dd>
+					<dt>
+						<a href="#">个护健康<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">剃须刀</a>
+						<a href="#">口腔护理</a>
+						<a href="#">电吹风</a>
+						<a href="#">美容器</a>
+						<a href="#">洁面仪</a>
+						<a href="#">卷/直发器</a>
+						<a href="#">理发器</a>
+						<a href="#">剃/脱毛器</a>
+						<a href="#">足浴盆</a>
+						<a href="#">健康秤/厨房秤</a>
+						<a href="#">按摩器</a>
+						<a href="#">按摩椅</a>
+						<a href="#">其它健康电器</a>
+					</dd>
+					<dt>
+						<a href="#">家庭影音<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">家庭影院</a>
+						<a href="#">迷你音响</a>
+						<a href="#">DVD功放</a>
+						<a href="#">回音壁</a>
+						<a href="#">影音配件</a>
+					</dd>
+					<dt>
+						<a href="#">进口电器<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">进口电器</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="b" class="sub_content none">
+				<dl>
+					<dt>
+						<a href="#">手机通讯<i>&gt;</i></a>
+					</dt>
+					<dd class="first">
+						<a href="#">手机</a>
+						<a href="#">对讲机</a>
+						<a href="#">手机维修</a>
+					</dd>
+					<dt>
+						<a href="#">运营商<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">合约机</a>
+						<a href="#">选号码</a>
+						<a href="#">固话宽带</a>
+						<a href="#">办套餐</a>
+						<a href="#">充话费/流量</a>
+						<a href="#">中国电信</a>
+						<a href="#">中国移动</a>
+						<a href="#">中国联通</a>
+						<a href="#">京东通信</a>
+						<a href="#">170选号</a>
+					</dd>
+					<dt>
+						<a href="#">手机配件<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">手机壳</a>
+						<a href="#">贴膜</a>
+						<a href="#">手机存储卡</a>
+						<a href="#">数据线</a>
+						<a href="#">充电器</a>
+						<a href="#">手机耳机</a>
+						<a href="#">创意配件</a>
+						<a href="#">手机饰品</a>
+						<a href="#">手机电池</a>
+						<a href="#">苹果周边</a>
+						<a href="#">移动电源</a>
+						<a href="#">蓝牙耳机</a>
+						<a href="#">手机支架</a>
+						<a href="#">车载配件</a>
+						<a href="#">拍照配件</a>
+					</dd>
+					<dt>
+						<a href="#">摄影摄像<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">数码相机</a>
+						<a href="#">单电/微单相机</a>
+						<a href="#">单反相机</a>
+						<a href="#">拍立得</a>
+						<a href="#">运动相机</a>
+						<a href="#">摄像机</a>
+						<a href="#">镜头</a>
+						<a href="#">户外器材</a>
+						<a href="#">影棚器材</a>
+						<a href="#">冲印服务</a>
+						<a href="#">数码相框</a>
+					</dd>
+					<dt>
+						<a href="#">数码配件<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">存储卡</a>
+						<a href="#">三脚架/云台</a>
+						<a href="#">相机包</a>
+						<a href="#">滤镜</a>
+						<a href="#">闪光灯/手柄</a>
+						<a href="#">相机清洁/贴膜</a>
+						<a href="#">机身附件</a>
+						<a href="#">镜头附件</a>
+						<a href="#">读卡器</a>
+						<a href="#">支架</a>
+						<a href="#">电池/充电器</a>
+					</dd>
+					<dt>
+						<a href="#">影音娱乐<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">耳机/耳麦</a>
+						<a href="#">音箱/音响</a>
+						<a href="#">便携/无线音箱</a>
+						<a href="#">收音机</a>
+						<a href="#">麦克风</a>
+						<a href="#">MP3/MP4</a>
+						<a href="#">专业音频</a>
+					</dd>
+					<dt>
+						<a href="#">电子教育<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">学生平板</a>
+						<a href="#">点读机/笔</a>
+						<a href="#">早教益智</a>
+						<a href="#">录音笔</a>
+						<a href="#">电纸书</a>
+						<a href="#">电子词典</a>
+						<a href="#">复读机</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="c" class="sub_content none">
+				<dl>
+					<dt>
+						<a href="#">电脑整机<i>&gt;</i></a>
+					</dt>
+					<dd class="first">
+						<a href="#">笔记本</a>
+						<a href="#">游戏本</a>
+						<a href="#">平板电脑</a>
+						<a href="#">平板电脑配件</a>
+						<a href="#">台式机</a>
+						<a href="#">一体机</a>
+						<a href="#">服务器/工作站</a>
+						<a href="#">笔记本配件</a>
+					</dd>
+					<dt>
+						<a href="#">电脑配件<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">显示器</a>
+						<a href="#">CPU</a>
+						<a href="#">主板</a>
+						<a href="#">显卡</a>
+						<a href="#">硬盘</a>
+						<a href="#">内存</a>
+						<a href="#">机箱</a>
+						<a href="#">电源</a>
+						<a href="#">散热器</a>
+						<a href="#">刻录机/光驱</a>
+						<a href="#">声卡/扩展卡</a>
+						<a href="#">装机配件</a>
+						<a href="#">SSD固态硬盘</a>
+						<a href="#">组装电脑</a>
+					</dd>
+					<dt>
+						<a href="#">外设产品<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">鼠标</a>
+						<a href="#">键盘</a>
+						<a href="#">键鼠套装</a>
+						<a href="#">网络仪表仪器</a>
+						<a href="#">U盘</a>
+						<a href="#">移动硬盘</a>
+						<a href="#">鼠标垫</a>
+						<a href="#">摄像头</a>
+						<a href="#">线缆</a>
+						<a href="#">手写板</a>
+						<a href="#">硬盘盒</a>
+						<a href="#">电脑工具</a>
+						<a href="#">电脑清洁</a>
+						<a href="#">UPS</a>
+						<a href="#">电源插座</a>
+					</dd>
+					<dt>
+						<a href="#">游戏设备<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">游戏机</a>
+						<a href="#">游戏耳机</a>
+						<a href="#">手柄/方向盘</a>
+						<a href="#">游戏软件</a>
+						<a href="#">游戏周边</a>
+					</dd>
+					<dt>
+						<a href="#">网络产品<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">路由器</a>
+						<a href="#">网络机顶盒</a>
+						<a href="#">交换机</a>
+						<a href="#">网络存储</a>
+						<a href="#">网卡</a>
+						<a href="#">4G/3G上网</a>
+						<a href="#">网络配件</a>
+					</dd>
+					<dt>
+						<a href="#">办公设备<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">投影机</a>
+						<a href="#">投影配件</a>
+						<a href="#">多功能一体机</a>
+						<a href="#">打印机</a>
+						<a href="#">传真设备</a>
+						<a href="#">验钞/点钞机</a>
+						<a href="#">扫描设备</a>
+						<a href="#">复合机</a>
+						<a href="#">碎纸机</a>
+						<a href="#">考勤机</a>
+						<a href="#">收银机</a>
+						<a href="#">会议音频视频</a>
+						<a href="#">保险柜</a>
+						<a href="#">装订/封装机</a>
+						<a href="#">安防监控</a>
+						<a href="#">办公家具</a>
+						<a href="#">白板</a>
+					</dd>
+					<dt>
+						<a href="#">文具耗材<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">硒鼓/墨粉</a>
+						<a href="#">墨盒</a>
+						<a href="#">色带</a>
+						<a href="#">纸类</a>
+						<a href="#">办公文具</a>
+						<a href="#">学生文具</a>
+						<a href="#">文件管理</a>
+						<a href="#">本册/便签</a>
+						<a href="#">计算器</a>
+						<a href="#">笔类</a>
+						<a href="#">画具画材</a>
+						<a href="#">财会用品</a>
+						<a href="#">刻录碟片/附件</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="d" class="sub_content none">
+				<dl>
+					<dt>
+						<a href="#">厨具<i>&gt;</i></a>
+					</dt>
+					<dd class="first">
+						<a href="#">烹饪锅具</a>
+						<a href="#">刀剪菜板</a>
+						<a href="#">厨房配件</a>
+						<a href="#">水具酒具</a>
+						<a href="#">餐具</a>
+						<a href="#">茶具/咖啡具</a>
+					</dd>
+					<dt>
+						<a href="#">家纺<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">床品套件</a>
+						<a href="#">被子</a>
+						<a href="#">枕芯</a>
+						<a href="#">蚊帐</a>
+						<a href="#">凉席</a>
+						<a href="#">毛巾浴巾</a>
+						<a href="#">地毯地垫</a>
+						<a href="#">床垫/床褥</a>
+						<a href="#">毯子</a>
+						<a href="#">抱枕靠垫</a>
+						<a href="#">窗帘/窗纱</a>
+						<a href="#">床单/床笠</a>
+						<a href="#">被套</a>
+						<a href="#">枕巾枕套</a>
+						<a href="#">沙发垫套/椅垫</a>
+						<a href="#">桌布/罩件</a>
+						<a href="#">电热毯</a>
+						<a href="#">布艺软饰</a>
+					</dd>
+					<dt>
+						<a href="#">生活日用<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">收纳用品</a>
+						<a href="#">雨伞雨具</a>
+						<a href="#">净化除味</a>
+						<a href="#">浴室用品</a>
+						<a href="#">清洁工具</a>
+					</dd>
+					<dt>
+						<a href="#">家装软饰<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">装饰字画</a>
+						<a href="#">装饰摆件</a>
+						<a href="#">手工/十字绣</a>
+						<a href="#">相框/照片墙</a>
+						<a href="#">墙贴/装饰贴</a>
+						<a href="#">花瓶花艺</a>
+						<a href="#">香薰蜡烛</a>
+					</dd>
+					<dt>
+						<a href="#">灯具<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">吸顶灯</a>
+						<a href="#">吊灯</a>
+						<a href="#">台灯</a>
+						<a href="#">筒灯射灯</a>
+						<a href="#">装饰灯</a>
+						<a href="#">LED灯</a>
+						<a href="#">氛围照明</a>
+						<a href="#">落地灯</a>
+						<a href="#">庭院灯</a>
+						<a href="#">应急灯/手电</a>
+						<a href="#">节能灯</a>
+					</dd>
+					<dt>
+						<a href="#">家具<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">卧室家具</a>
+						<a href="#">客厅家具</a>
+						<a href="#">餐厅家具</a>
+						<a href="#">书房家具</a>
+						<a href="#">儿童家具</a>
+						<a href="#">储物家具</a>
+						<a href="#">阳台/户外</a>
+						<a href="#">办公家具</a>
+						<a href="#">床</a>
+						<a href="#">床垫</a>
+						<a href="#">沙发</a>
+						<a href="#">电脑椅</a>
+						<a href="#">衣柜</a>
+						<a href="#">茶几</a>
+						<a href="#">电视柜</a>
+						<a href="#">餐桌</a>
+						<a href="#">电脑桌</a>
+						<a href="#">鞋架/衣帽架</a>
+						<a href="#">儿童桌椅</a>
+						<a href="#">儿童床</a>
+						<a href="#">晾衣架</a>
+					</dd>
+					<dt>
+						<a href="#">家装主材<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">瓷砖</a>
+						<a href="#">地板</a>
+						<a href="#">油漆涂料</a>
+						<a href="#">壁纸</a>
+						<a href="#">涂刷辅料</a>
+					</dd>
+					<dt>
+						<a href="#">厨房卫浴<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">水槽</a>
+						<a href="#">龙头</a>
+						<a href="#">淋浴花洒</a>
+						<a href="#">马桶</a>
+						<a href="#">智能马桶盖</a>
+						<a href="#">厨卫挂件</a>
+						<a href="#">浴室柜</a>
+						<a href="#">浴霸</a>
+						<a href="#">垃圾处理器</a>
+					</dd>
+					<dt>
+						<a href="#">五金电工<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">锁具</a>
+						<a href="#">电动工具</a>
+						<a href="#">手动工具</a>
+						<a href="#">测量工具</a>
+						<a href="#">劳防用品</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="e" class="sub_content none">
+				<dl>
+					<dt>
+						<a href="#">女装<i>&gt;</i></a>
+					</dt>
+					<dd class="first">
+						<a href="#">商场同款</a>
+						<a href="#">当季热卖</a>
+						<a href="#">2017新品</a>
+						<a href="#">连衣裙</a>
+						<a href="#">T恤</a>
+						<a href="#">雪纺衫</a>
+						<a href="#">休闲裤</a>
+						<a href="#">牛仔裤</a>
+						<a href="#">衬衫</a>
+						<a href="#">针织衫</a>
+						<a href="#">半身裙</a>
+						<a href="#">短裤</a>
+						<a href="#">时尚套装</a>
+						<a href="#">卫衣</a>
+						<a href="#">短外套</a>
+						<a href="#">风衣</a>
+						<a href="#">打底衫</a>
+						<a href="#">小西装</a>
+						<a href="#">吊带/背心</a>
+						<a href="#">正装裤</a>
+						<a href="#">马甲</a>
+						<a href="#">打底裤</a>
+						<a href="#">真皮皮衣</a>
+						<a href="#">大码女装</a>
+						<a href="#">中老年女装</a>
+						<a href="#">毛呢大衣</a>
+						<a href="#">羽绒服</a>
+						<a href="#">棉服</a>
+						<a href="#">皮草</a>
+						<a href="#">羊绒衫</a>
+						<a href="#">毛衣</a>
+						<a href="#">加绒裤</a>
+						<a href="#">仿皮皮衣</a>
+						<a href="#">婚纱</a>
+						<a href="#">礼服</a>
+						<a href="#">旗袍/唐装</a>
+						<a href="#">设计师/潮牌</a>
+					</dd>
+					<dt>
+						<a href="#">男装<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">商场同款</a>
+						<a href="#">当季热卖</a>
+						<a href="#">2017新品</a>
+						<a href="#">T恤</a>
+						<a href="#">牛仔裤</a>
+						<a href="#">休闲裤</a>
+						<a href="#">衬衫</a>
+						<a href="#">短裤</a>
+						<a href="#">POLO衫</a>
+						<a href="#">羽绒服</a>
+						<a href="#">棉服</a>
+						<a href="#">真皮皮衣</a>
+						<a href="#">夹克</a>
+						<a href="#">卫衣</a>
+						<a href="#">毛呢大衣</a>
+						<a href="#">大码男装</a>
+						<a href="#">西服套装</a>
+						<a href="#">仿皮皮衣</a>
+						<a href="#">风衣</a>
+						<a href="#">针织衫</a>
+						<a href="#">马甲/背心</a>
+						<a href="#">羊毛衫</a>
+						<a href="#">羊绒衫</a>
+						<a href="#">西服</a>
+						<a href="#">西裤</a>
+						<a href="#">卫裤/运动裤</a>
+						<a href="#">工装</a>
+						<a href="#">设计师/潮牌</a>
+						<a href="#">唐装/中山装</a>
+						<a href="#">中老年男装</a>
+						<a href="#">加绒裤</a>
+					</dd>
+					<dt>
+						<a href="#">内衣<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">文胸</a>
+						<a href="#">睡衣/家居服</a>
+						<a href="#">男士内裤</a>
+						<a href="#">女士内裤</a>
+						<a href="#">吊带/背心</a>
+						<a href="#">文胸套装</a>
+						<a href="#">情侣睡衣</a>
+						<a href="#">塑身美体</a>
+						<a href="#">少女文胸</a>
+						<a href="#">休闲棉袜</a>
+						<a href="#">商务男袜</a>
+						<a href="#">连裤袜/丝袜</a>
+						<a href="#">美腿袜</a>
+						<a href="#">打底裤袜</a>
+						<a href="#">抹胸</a>
+						<a href="#">内衣配件</a>
+						<a href="#">大码内衣</a>
+						<a href="#">打底衫</a>
+						<a href="#">泳衣</a>
+						<a href="#">秋衣秋裤</a>
+						<a href="#">保暖内衣</a>
+						<a href="#">情趣内衣</a>
+					</dd>
+					<dt>
+						<a href="#">配饰<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">太阳镜</a>
+						<a href="#">男士腰带/礼盒</a>
+						<a href="#">光学镜架/镜片</a>
+						<a href="#">防辐射眼镜</a>
+						<a href="#">棒球帽</a>
+						<a href="#">遮阳伞/雨伞</a>
+						<a href="#">领带/领结/领带夹</a>
+					</dd>
+					<dt>
+						<a href="#">童装童鞋<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">套装</a>
+						<a href="#">上衣</a>
+						<a href="#">裤子</a>
+						<a href="#">裙子</a>
+						<a href="#">运动服</a>
+						<a href="#">运动鞋</a>
+						<a href="#">内衣配饰</a>
+						<a href="#">亲子装</a>
+						<a href="#">凉鞋</a>
+						<a href="#">皮鞋/帆布鞋</a>
+						<a href="#">功能鞋</a>
+						<a href="#">演出服</a>
+						<a href="#">羽绒服/棉服</a>
+						<a href="#">靴子</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="f" class="sub_content none">
+				<dl>
+					<dt>
+						<a href="#">面部护肤<i>&gt;</i></a>
+					</dt>
+					<dd class="first">
+						<a href="#">补水保湿</a>
+						<a href="#">卸妆</a>
+						<a href="#">洁面</a>
+						<a href="#">爽肤水</a>
+						<a href="#">乳液面霜</a>
+						<a href="#">精华</a>
+						<a href="#">眼霜</a>
+						<a href="#">防晒</a>
+						<a href="#">面膜</a>
+						<a href="#">剃须</a>
+						<a href="#">套装</a>
+					</dd>
+					<dt>
+						<a href="#">洗发护发<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">洗发</a>
+						<a href="#">护发</a>
+						<a href="#">染发</a>
+						<a href="#">造型</a>
+						<a href="#">假发</a>
+						<a href="#">美发工具</a>
+						<a href="#">套装</a>
+					</dd>
+					<dt>
+						<a href="#">身体护理<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">补水保湿</a>
+						<a href="#">沐浴</a>
+						<a href="#">润肤</a>
+						<a href="#">精油</a>
+						<a href="#">颈部</a>
+						<a href="#">手足</a>
+						<a href="#">纤体塑形</a>
+						<a href="#">美胸</a>
+						<a href="#">套装</a>
+					</dd>
+					<dt>
+						<a href="#">口腔护理<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">牙膏/牙粉</a>
+						<a href="#">牙刷/牙线</a>
+						<a href="#">漱口水</a>
+						<a href="#">套装</a>
+					</dd>
+					<dt>
+						<a href="#">女性护理<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">卫生巾</a>
+						<a href="#">卫生护垫</a>
+						<a href="#">私密护理</a>
+						<a href="#">脱毛膏</a>
+					</dd>
+					<dt>
+						<a href="#">香水彩妆<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">BB霜</a>
+						<a href="#">化妆棉</a>
+						<a href="#">女士香水</a>
+						<a href="#">男士香水</a>
+						<a href="#">底妆</a>
+						<a href="#">眉笔</a>
+						<a href="#">睫毛膏</a>
+						<a href="#">眼线</a>
+						<a href="#">眼影</a>
+						<a href="#">唇膏/彩</a>
+						<a href="#">腮红</a>
+						<a href="#">美甲</a>
+						<a href="#">美妆工具</a>
+						<a href="#">套装</a>
+					</dd>
+					<dt>
+						<a href="#">清洁用品<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">纸品湿巾</a>
+						<a href="#">衣物清洁</a>
+						<a href="#">清洁工具</a>
+						<a href="#">家庭清洁</a>
+						<a href="#">一次性用品</a>
+						<a href="#">驱虫用品</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="g" class="sub_content none">
+				<dl>
+					<dt>
+						<a href="#">时尚女鞋<i>&gt;</i></a>
+					</dt>
+					<dd class="first">
+						<a href="#">2017新品</a>
+						<a href="#">单鞋</a>
+						<a href="#">休闲鞋</a>
+						<a href="#">帆布鞋</a>
+						<a href="#">妈妈鞋</a>
+						<a href="#">布鞋/绣花鞋</a>
+						<a href="#">女靴</a>
+						<a href="#">踝靴</a>
+						<a href="#">马丁靴</a>
+						<a href="#">雪地靴</a>
+						<a href="#">雨鞋/雨靴</a>
+						<a href="#">高跟鞋</a>
+						<a href="#">凉鞋</a>
+						<a href="#">拖鞋/人字拖</a>
+						<a href="#">鱼嘴鞋</a>
+						<a href="#">内增高</a>
+						<a href="#">坡跟鞋</a>
+						<a href="#">防水台</a>
+						<a href="#">松糕鞋</a>
+						<a href="#">鞋配件</a>
+						<a href="#">豆豆鞋</a>
+					</dd>
+					<dt>
+						<a href="#">潮流女包<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">真皮包</a>
+						<a href="#">水桶包</a>
+						<a href="#">单肩包</a>
+						<a href="#">手提包</a>
+						<a href="#">斜挎包</a>
+						<a href="#">双肩包</a>
+						<a href="#">钱包</a>
+						<a href="#">手拿包</a>
+						<a href="#">卡包/零钱包</a>
+						<a href="#">帆布包</a>
+						<a href="#">小方包</a>
+						<a href="#">钥匙包</a>
+						<a href="#">链条包</a>
+						<a href="#">贝壳包</a>
+					</dd>
+					<dt>
+						<a href="#">精品男包<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">男士钱包</a>
+						<a href="#">双肩包</a>
+						<a href="#">单肩/斜挎包</a>
+						<a href="#">商务公文包</a>
+						<a href="#">男士手包</a>
+						<a href="#">卡包</a>
+						<a href="#">名片夹</a>
+						<a href="#">钥匙包</a>
+						<a href="#">休闲男包</a>
+						<a href="#">帆布包</a>
+						<a href="#">邮差包</a>
+					</dd>
+					<dt>
+						<a href="#">功能箱包<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">拉杆箱</a>
+						<a href="#">拉杆包</a>
+						<a href="#">旅行包</a>
+						<a href="#">电脑包</a>
+						<a href="#">休闲运动包</a>
+						<a href="#">书包</a>
+						<a href="#">登山包</a>
+						<a href="#">腰包/胸包</a>
+						<a href="#">旅行配件</a>
+						<a href="#">相机包</a>
+						<a href="#">妈咪包</a>
+					</dd>
+					<dt>
+						<a href="#">奢侈品<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">箱包</a>
+						<a href="#">钱包</a>
+						<a href="#">服饰腰带</a>
+						<a href="#">鞋靴</a>
+						<a href="#">太阳镜/眼镜框</a>
+						<a href="#">饰品配件</a>
+					</dd>
+					<dt>
+						<a href="#">精选大牌<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">GUCCI</a>
+						<a href="#">COACH</a>
+						<a href="#">雷朋</a>
+						<a href="#">施华洛世奇</a>
+						<a href="#">MK</a>
+						<a href="#">阿玛尼</a>
+						<a href="#">菲拉格慕</a>
+						<a href="#">VERSACE</a>
+						<a href="#">巴宝莉</a>
+						<a href="#">普拉达</a>
+						<a href="#">万宝龙</a>
+					</dd>
+					<dt>
+						<a href="#">钟表<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">天梭</a>
+						<a href="#">浪琴</a>
+						<a href="#">欧米茄</a>
+						<a href="#">泰格豪雅</a>
+						<a href="#">DW</a>
+						<a href="#">卡西欧</a>
+						<a href="#">西铁城</a>
+						<a href="#">罗西尼</a>
+						<a href="#">瑞表</a>
+						<a href="#">国表</a>
+						<a href="#">日韩表</a>
+						<a href="#">欧美表</a>
+						<a href="#">德表</a>
+						<a href="#">儿童手表</a>
+						<a href="#">智能手表</a>
+						<a href="#">闹钟</a>
+						<a href="#">座钟挂钟</a>
+						<a href="#">钟表配件</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="h" class="sub_content none">
+				<dl>
+					<dt>
+						<a href="#">运动鞋包<i>&gt;</i></a>
+					</dt>
+					<dd class="first">
+						<a href="#">跑步鞋</a>
+						<a href="#">休闲鞋</a>
+						<a href="#">篮球鞋</a>
+						<a href="#">帆布鞋</a>
+						<a href="#">板鞋</a>
+						<a href="#">拖鞋</a>
+						<a href="#">运动包</a>
+						<a href="#">足球鞋</a>
+						<a href="#">乒羽网鞋</a>
+						<a href="#">训练鞋</a>
+					</dd>
+					<dt>
+						<a href="#">运动服饰<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">T恤</a>
+						<a href="#">运动裤</a>
+						<a href="#">紧身衣</a>
+						<a href="#">运动套装</a>
+						<a href="#">运动背心</a>
+						<a href="#">羽绒服</a>
+						<a href="#">卫衣/套头衫</a>
+						<a href="#">棉服</a>
+						<a href="#">夹克/风衣</a>
+						<a href="#">运动配饰</a>
+						<a href="#">乒羽网服</a>
+					</dd>
+					<dt>
+						<a href="#">健身训练<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">跑步机</a>
+						<a href="#">健身车/动感单车</a>
+						<a href="#">椭圆机</a>
+						<a href="#">综合训练器</a>
+						<a href="#">划船机</a>
+						<a href="#">甩脂机</a>
+						<a href="#">倒立机</a>
+						<a href="#">武术搏击</a>
+						<a href="#">踏步机</a>
+						<a href="#">哑铃</a>
+					</dd>
+					<dt>
+						<a href="#">骑行运动<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">山地车</a>
+						<a href="#">公路车</a>
+						<a href="#">折叠车</a>
+						<a href="#">骑行服</a>
+						<a href="#">电动车</a>
+						<a href="#">电动滑板车</a>
+						<a href="#">城市自行车</a>
+						<a href="#">平衡车</a>
+						<a href="#">穿戴装备</a>
+						<a href="#">自行车配件</a>
+					</dd>
+					<dt>
+						<a href="#">体育用品<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">乒乓球</a>
+						<a href="#">羽毛球</a>
+						<a href="#">篮球</a>
+						<a href="#">足球</a>
+						<a href="#">轮滑滑板</a>
+						<a href="#">网球</a>
+						<a href="#">高尔夫</a>
+					</dd>
+					<dt>
+						<a href="#">户外鞋服<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">户外风衣</a>
+						<a href="#">徒步鞋</a>
+						<a href="#">冲锋衣</a>
+						<a href="#">速干衣裤</a>
+						<a href="#">越野跑鞋</a>
+						<a href="#">滑雪服</a>
+						<a href="#">军迷服饰</a>
+						<a href="#">登山鞋</a>
+					</dd>
+					<dt>
+						<a href="#">户外装备<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">背包</a>
+						<a href="#">帐篷/垫子</a>
+						<a href="#">望远镜</a>
+						<a href="#">烧烤用具</a>
+						<a href="#">便携桌椅</a>
+						<a href="#">户外配饰</a>
+						<a href="#">军迷用品</a>
+						<a href="#">野餐用品</a>
+						<a href="#">睡袋/吊床</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="i" class="sub_content none">
+				<dl>
+					<dt>
+						<a href="#">汽车车型<i>&gt;</i></a>
+					</dt>
+					<dd class="first">
+						<a href="#">微型车</a>
+						<a href="#">小型车</a>
+						<a href="#">紧凑型车</a>
+						<a href="#">中型车</a>
+						<a href="#">中大型车</a>
+						<a href="#">豪华车</a>
+						<a href="#">MPV</a>
+						<a href="#">SUV</a>
+						<a href="#">跑车</a>
+					</dd>
+					<dt>
+						<a href="#">汽车品牌<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">宝马</a>
+						<a href="#">上汽大众</a>
+						<a href="#">一汽大众</a>
+						<a href="#">宝骏</a>
+						<a href="#">奇瑞</a>
+						<a href="#">东风标致</a>
+						<a href="#">陆风</a>
+					</dd>
+					<dt>
+						<a href="#">维修保养<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">机油</a>
+						<a href="#">轮胎</a>
+						<a href="#">添加剂</a>
+						<a href="#">防冻液</a>
+						<a href="#">滤清器</a>
+						<a href="#">蓄电池</a>
+						<a href="#">雨刷</a>
+						<a href="#">刹车片/盘</a>
+						<a href="#">火花塞</a>
+						<a href="#">车灯</a>
+						<a href="#">轮毂</a>
+						<a href="#">维修配件</a>
+						<a href="#">汽车玻璃</a>
+						<a href="#">减震器</a>
+						<a href="#">正时皮带</a>
+						<a href="#">底盘装甲/护板</a>
+						<a href="#">汽车喇叭</a>
+						<a href="#">汽修工具</a>
+					</dd>
+					<dt>
+						<a href="#">汽车装饰<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">座垫</a>
+						<a href="#">脚垫</a>
+						<a href="#">座套</a>
+						<a href="#">头枕腰靠</a>
+						<a href="#">方向盘套</a>
+						<a href="#">后备箱垫</a>
+						<a href="#">香水</a>
+						<a href="#">空气净化</a>
+						<a href="#">挂件摆件</a>
+					</dd>
+					<dt>
+						<a href="#">车载电器<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">行车记录仪</a>
+						<a href="#">电源</a>
+						<a href="#">智能车机</a>
+						<a href="#">车载蓝牙</a>
+						<a href="#">智能驾驶</a>
+						<a href="#">倒车雷达</a>
+						<a href="#">车载电台</a>
+						<a href="#">导航仪</a>
+						<a href="#">安全预警仪</a>
+						<a href="#">车载影音</a>
+						<a href="#">车载净化器</a>
+						<a href="#">车载吸尘器</a>
+						<a href="#">汽车音响</a>
+						<a href="#">车载冰箱</a>
+						<a href="#">车载生活电器</a>
+					</dd>
+				</dl>
+			</div>
+			<div id="j" class="sub_content none">
+				<dl>
+					<dt>
+						<a href="#">中西药品<i>&gt;</i></a>
+					</dt>
+					<dd class="first">
+						<a href="#">感冒咳嗽</a>
+						<a href="#">补肾壮阳</a>
+						<a href="#">补气养血</a>
+						<a href="#">止痛镇痛</a>
+						<a href="#">耳鼻喉用药</a>
+						<a href="#">眼科用药</a>
+						<a href="#">口腔用药</a>
+						<a href="#">皮肤用药</a>
+						<a href="#">肠胃消化</a>
+						<a href="#">风湿骨外伤</a>
+						<a href="#">男科/泌尿</a>
+						<a href="#">妇科用药</a>
+						<a href="#">儿科用药</a>
+						<a href="#">心脑血管</a>
+						<a href="#">肝胆用药</a>
+						<a href="#">中风/心绞痛</a>
+						<a href="#">糖尿病</a>
+						<a href="#">皮肤/妇科炎症</a>
+						<a href="#">性功能障碍</a>
+						<a href="#">肝炎</a>
+						<a href="#">高血压/血脂</a>
+						<a href="#">痛风/关节病</a>
+						<a href="#">前列腺/肾炎</a>
+					</dd>
+					<dt>
+						<a href="#">营养健康<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">调节免疫</a>
+						<a href="#">调节三高</a>
+						<a href="#">缓解疲劳</a>
+						<a href="#">美体塑身</a>
+						<a href="#">美容养颜</a>
+						<a href="#">肝肾养护</a>
+						<a href="#">肠胃养护</a>
+						<a href="#">明目益智</a>
+						<a href="#">骨骼健康</a>
+						<a href="#">改善睡眠</a>
+						<a href="#">抗氧化</a>
+						<a href="#">耐缺氧</a>
+					</dd>
+					<dt>
+						<a href="#">营养成分<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">维生素/矿物质</a>
+						<a href="#">蛋白质</a>
+						<a href="#">鱼油/磷脂</a>
+						<a href="#">螺旋藻</a>
+						<a href="#">番茄红素</a>
+						<a href="#">叶酸</a>
+						<a href="#">葡萄籽</a>
+						<a href="#">左旋肉碱</a>
+						<a href="#">辅酶Q10</a>
+						<a href="#">益生菌</a>
+						<a href="#">玛咖</a>
+						<a href="#">膳食纤维</a>
+						<a href="#">牛初乳</a>
+						<a href="#">胶原蛋白</a>
+						<a href="#">大豆异黄酮</a>
+						<a href="#">芦荟提取</a>
+						<a href="#">酵素</a>
+					</dd>
+					<dt>
+						<a href="#">滋补养生<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">阿胶</a>
+						<a href="#">蜂蜜/蜂产品</a>
+						<a href="#">枸杞</a>
+						<a href="#">燕窝</a>
+						<a href="#">冬虫夏草</a>
+						<a href="#">人参/西洋参</a>
+						<a href="#">三七</a>
+						<a href="#">鹿茸</a>
+						<a href="#">雪蛤</a>
+						<a href="#">青钱柳</a>
+						<a href="#">石斛/枫斗</a>
+						<a href="#">灵芝/孢子粉</a>
+						<a href="#">当归</a>
+						<a href="#">养生茶饮</a>
+						<a href="#">药食同源</a>
+					</dd>
+					<dt>
+						<a href="#">计生情趣<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">安全避孕</a>
+						<a href="#">验孕测孕</a>
+						<a href="#">人体润滑</a>
+						<a href="#">男用延时</a>
+						<a href="#">男用器具</a>
+						<a href="#">女用器具</a>
+						<a href="#">情趣内衣</a>
+					</dd>
+					<dt>
+						<a href="#">保健器械<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">血压计</a>
+						<a href="#">血糖仪</a>
+						<a href="#">血氧仪</a>
+						<a href="#">体温计</a>
+						<a href="#">体重秤</a>
+						<a href="#">胎心仪</a>
+						<a href="#">呼吸制氧</a>
+						<a href="#">雾化器</a>
+						<a href="#">助听器</a>
+						<a href="#">轮椅</a>
+						<a href="#">拐杖</a>
+						<a href="#">护理床</a>
+						<a href="#">中医保健</a>
+						<a href="#">养生器械</a>
+						<a href="#">理疗仪</a>
+						<a href="#">家庭护理</a>
+						<a href="#">智能健康</a>
+					</dd>
+					<dt>
+						<a href="#">护理护具<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">口罩</a>
+						<a href="#">眼罩/耳塞</a>
+						<a href="#">跌打损伤</a>
+						<a href="#">暖贴</a>
+						<a href="#">鼻喉护理</a>
+						<a href="#">眼部保健</a>
+					</dd>
+					<dt>
+						<a href="#">隐形眼镜<i>&gt;</i></a>
+					</dt>
+					<dd>
+						<a href="#">隐形眼镜</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/functions.js"></script>
+	<script src="js/megadropdown.js"></script>
+</body>
+</html>
